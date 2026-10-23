@@ -304,6 +304,48 @@ location with a carbon intensity of 40 gCO<sub>2</sub>e/kWh.
 
 :::::::::::::::::::::::::::::::::::::::
 
+## Using tools to calculate your HPC emissions
+
+Calculating your HPC emissions manually can take time and require accurate estimates of energy consumption. HPC providers might implement tools to help you calculate your emissions. Examples of such tools include the [Green Algorithms 4 HPC](http://www.green-algorithms.org/GA4HPC/) or [Code Carbon](https://codecarbon.io).
+
+BlueBEAR has configured [Green Algorithms 4 HPC](http://www.green-algorithms.org/GA4HPC/) on the HPC. This tool allows the user to calculate the total emissions from their HPC use and provides some further statistics on the efficiency of their jobs.
+
+Connect to BlueBEAR either via SSH or via the [Portal](https://portal.bear.bham.ac.uk/pun/sys/dashboard/) > Clusters > BlueBEAR HPC Shell access. Once connected, open the Nano text editor to create an example job submission script:
+
+```bash
+nano green-hpc-example.sh
+```
+
+In the text editor, paste the following job script:
+
+```bash
+# TODO: example job script with some resource over-allocation
+```
+
+Submit the job:
+
+```bash
+sbatch green-hpc-example.sh
+```
+
+Once the job is complete, load the Slurm helpers module:
+
+```bash
+module load slurm-helpers
+```
+
+Then, run Green Algorithms 4 HPC. We will specify the job ID of our previous example job to get its statistics in isolation.
+
+```bash
+myCarbonFootprint.sh --filterJobIDs [EXAMPLE_JOB_ID]
+```
+
+You should get the following output:
+
+```text
+TODO: add output
+```
+
 ## HPC Carbon Intensity (HPC-CI) specification
 
 :::::::::::::::::::::::::::::::::::::::: callout
